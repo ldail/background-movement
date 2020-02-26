@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="index.css" rel="stylesheet" />
+  <title>Game</title>
+</head>
+<body>
+  <div class="app"></div>
+  
+</body>
+<script>
+  document.querySelector('.app').style.backgroundPosition = '50% 50%';
+  document.onkeydown = checkKey;
+
+  function checkKey(e) {
+    let currentPositionX = document.querySelector('.app').style['background-position-x'];
+    let currentPositionY = document.querySelector('.app').style['background-position-y'];
+    let xValue = parseInt(currentPositionX.slice(0,2));
+    let yValue = parseInt(currentPositionY.slice(0,2));
+    if (e.keyCode === 38 && yValue > 0) {
+      //up
+      let newY =  yValue - 1;
+      document.querySelector('.app').style.backgroundPosition = `${currentPositionX} ${newY}%`;
+      console.log('new position', document.querySelector('.app').style.backgroundPosition);
+    }
+    else if (e.keyCode === 40 && yValue < 99) {
+      //down
+      let newY =  yValue + 1;
+      document.querySelector('.app').style.backgroundPosition = `${currentPositionX} ${newY}%`;
+      console.log('new position', document.querySelector('.app').style.backgroundPosition);
+    }
+    else if (e.keyCode === 37 && xValue > 0) {
+      //left 
+      let newX =  xValue - 1;
+      document.querySelector('.app').style.backgroundPosition = `${newX}% ${currentPositionY}`;
+      console.log('new position', document.querySelector('.app').style.backgroundPosition);
+    }
+    else if (e.keyCode === 39 && xValue < 99) {
+      console.log(xValue);
+       // right arrow
+       let newX =  xValue + 1;
+      document.querySelector('.app').style.backgroundPosition = `${newX}% ${currentPositionY}`;
+      console.log('new position', document.querySelector('.app').style.backgroundPosition);
+    }
+
+  }
+</script>
+</html>
