@@ -3,8 +3,8 @@ function findCurrentPositions() {
   let character = {};
 
   //background
-  let backgroundPositionX = document.querySelector('.app').style['background-position-x'] || '1px';
-  let backgroundPositionY = document.querySelector('.app').style['background-position-y'] || '1px';
+  let backgroundPositionX = document.querySelector('.app').style['background-position-x'] || `-${(2560 - window.screen.width) / 2}px`;
+  let backgroundPositionY = document.querySelector('.app').style['background-position-y'] || `-${(1600 - window.screen.height) / 2}px`;
   let backgroundX = parseInt(backgroundPositionX.slice(0,backgroundPositionX.length-1));
   let backgroundY = parseInt(backgroundPositionY.slice(0,backgroundPositionY.length-1));
 
@@ -30,7 +30,7 @@ function checkKey(e) {
   let characterYLeft = -178;
   let characterYRight = -267;  
 
-  let stepPixels = 5;
+  let stepPixels = 7;
 
   //defaults - background
   let leftmostX = 1;
@@ -84,5 +84,8 @@ function checkKey(e) {
   }
 
 }
-
+document.addEventListener("DOMContentLoaded", function(){
+  document.querySelector('.app').style['background-position-x'] = `-${(2560 - window.screen.width) / 2}px`;
+  document.querySelector('.app').style['background-position-y'] = `-${(1600 - window.screen.height) / 2}px`;
+});
 document.onkeydown = checkKey;
