@@ -14,7 +14,8 @@ body {
 .app {
   flex: 1;
   background: url('background-2.jpg') no-repeat;
-  background-position: 0px;
+  background-position-x: 1px;
+  background-position-y: 1px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,7 +25,8 @@ body {
   background: url('personsprite.jpg') no-repeat;
   width: 60px;
   height: 89px;
-  background-position: 0px 0px;  
+  background-position-x: 0px;
+  background-position-y: 0px;
   object-fit: contain;
   background-size: 237px 355px;
 }

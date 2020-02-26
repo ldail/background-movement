@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="index.css" rel="stylesheet" />
+  <script src="index.js" type="text/javascript"></script>
   <title>Game</title>
 </head>
 <body>
@@ -13,7 +14,8 @@
   
 </body>
 <script>
-  document.querySelector('.app').style.backgroundPosition = '50% 50%';
+  /*
+  document.querySelector('.app').style.backgroundPosition = '0px -800px';
   document.querySelector('.character').style.backgroundPosition = '0px 0px';
   document.onkeydown = checkKey;
 
@@ -22,14 +24,14 @@
     //background
     let backgroundPositionX = document.querySelector('.app').style['background-position-x'];
     let backgroundPositionY = document.querySelector('.app').style['background-position-y'];
-    let backgroundX = parseInt(backgroundPositionX.slice(0,2));
-    let backgroundY = parseInt(backgroundPositionY.slice(0,2));
+    let backgroundX = parseInt(backgroundPositionX.slice(0,backgroundPositionX.length-1));
+    let backgroundY = parseInt(backgroundPositionY.slice(0,backgroundPositionY.length-1));
 
     //character
     let characterPositionX = document.querySelector('.character').style['background-position-x'];
     let characterPositionY = document.querySelector('.character').style['background-position-y'];
-    let characterX = parseInt(characterPositionX.slice(0,2));
-    let characterY = parseInt(characterPositionY.slice(0,2));
+    let characterX = parseInt(characterPositionX.slice(0,characterPositionX.length-1));
+    let characterY = parseInt(characterPositionY.slice(0,characterPositionY.length-1));
     let characterDefaultX = 0;
     let characterDefaultYDown = 0;
     let characterDefaultYUp = -89;
@@ -37,49 +39,56 @@
     let characterDefaultYRight = -267;
 
 
-    if (e.keyCode === 38 && backgroundY > 0) {
+    if (e.keyCode === 38 && backgroundY < 0) {
       //up
+
+      console.log('up');
 
       if (characterY !== characterDefaultYUp) {
         document.querySelector('.character').style.backgroundPosition = `${characterDefaultX}px ${characterDefaultYUp}px`;
       }
-      let newY =  backgroundY - 1;
-      document.querySelector('.app').style.backgroundPosition = `${backgroundPositionX} ${newY}%`;
+      let newY =  backgroundY + 1;
+      document.querySelector('.app').style.backgroundPosition = `${backgroundPositionX}px ${newY}px`;
     }
 
 
-    else if (e.keyCode === 40 && backgroundY < 99) {
+    else if (e.keyCode === 40 && backgroundY > -1600) {
       //down
+
+      console.log('down');
 
       if (characterY !== characterDefaultYDown) {
         document.querySelector('.character').style.backgroundPosition = `${characterDefaultX}px ${characterDefaultYDown}px`;
       }
-      let newY =  backgroundY + 1;
-      document.querySelector('.app').style.backgroundPosition = `${backgroundPositionX} ${newY}%`;
+      let newY =  backgroundY - 1;
+      document.querySelector('.app').style.backgroundPosition = `${backgroundPositionX}px ${newY}px`;
     }
 
 
-    else if (e.keyCode === 37 && backgroundX > 0) {
+    else if (e.keyCode === 37 && backgroundX < 0) {
       //left 
+      console.log('left');
 
       if (characterY !== characterDefaultYLeft) {
         document.querySelector('.character').style.backgroundPosition = `${characterDefaultX}px ${characterDefaultYLeft}px`;
       }
-      let newX =  backgroundX - 1;
-      document.querySelector('.app').style.backgroundPosition = `${newX}% ${backgroundPositionY}`;
+      let newX =  backgroundX + 1;
+      document.querySelector('.app').style.backgroundPosition = `${newX}px ${backgroundPositionY}px`;
     }
 
 
-    else if (e.keyCode === 39 && backgroundX < 99) {
+    else if (e.keyCode === 39 && backgroundX > -2560) {
        // right arrow
+       console.log('right');
 
        if (characterY !== characterDefaultYRight) {
         document.querySelector('.character').style.backgroundPosition = `${characterDefaultX}px ${characterDefaultYRight}px`;
       }
-       let newX =  backgroundX + 1;
-      document.querySelector('.app').style.backgroundPosition = `${newX}% ${backgroundPositionY}`;
+       let newX =  backgroundX - 1;
+      document.querySelector('.app').style.backgroundPosition = `${newX}px ${backgroundPositionY}px`;
     }
 
   }
+  */
 </script>
 </html>
